@@ -19,13 +19,26 @@ export const MoviesProvider = (props) => {
     },[]);
 
     const getMovie= (id)=>{
-        console.log(id)
-        movies.map(movie => {
-            if(movie.id == id) {
-                // console.log("fo");
-                setMovie(movie)
-            }
-        })
+        if(movies.length === 0){
+            getMovies().then(data=>{
+                setMovies(data);
+                data.map(movie => {
+                    if(movie.id == id) {
+                        console.log(movie);
+                        setMovie(movie)
+                    }
+                })
+            })
+        }else{
+            console.log(id)
+            movies.map(movie => {
+                if(movie.id == id) {
+                    console.log(movie);
+                    setMovie(movie)
+                }
+            })
+        }
+        
     }
 
     return ( 

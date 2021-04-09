@@ -5,24 +5,18 @@ import {MoviesContext} from "./../Context/MoviesContext"
 const MovieInfo = (props) => {
     const context = React.useContext(MoviesContext);
     const movie = context.movie;
+    let id = props.match.params.id;
     
     React.useEffect(()=>{
-        let id = parseInt(props.match.params.id);
         context.getMovie(id);
     },[])
 
-    const get=()=>{
-        console.log(movie)
-        if(movie === {}) return<></>
-    return(
-        <>
-            
-        </>
-    )}
-    console.log(movie)
+    const empty= JSON.stringify(movie)==JSON.stringify({});
+   
+    // console.log(empty)
     return ( 
         <div className="row">
-            { movie !== {} &&
+            { !empty &&
             <>
                 <div className="col-sm-3">
                 <img src={movie.image.original} className="img-thumbnail" alt="..."/>
