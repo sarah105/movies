@@ -9,7 +9,7 @@ export const MoviesProvider = (props) => {
 
     const getMovies = async()=>{
         let data = [];
-        await axios.get("http://api.tvmaze.com/shows")
+        await axios.get("https://api.tvmaze.com/shows")
         .then(response => {data = response.data})
         .catch(error => console.log(error))
         return data;
