@@ -9,7 +9,7 @@ const Movies = () => {
         <div className="row">
             {movies.length >0  &&
                 movies.map(movie => 
-                    <div className="col-md-2" key={movie.id}>
+                    <div className="col-md-2 col-sm-12" key={movie.id}>
                         <Card {...movie}/>
                     </div>
                 )
